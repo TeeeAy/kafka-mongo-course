@@ -8,8 +8,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.lang.annotation.Documented;
 
 @Data
-@Document(collection="Employee")
+@Document(collection="Product")
 public class Product {
+
+    @Id
+    private String id;
 
     @Field(value = "Name")
     private String name;
@@ -17,7 +20,7 @@ public class Product {
     @Field(value = "Description")
     private String description;
 
-    @Id
-    private String id;
+    @Field(value = "Image")
+    private String image;
 
 }

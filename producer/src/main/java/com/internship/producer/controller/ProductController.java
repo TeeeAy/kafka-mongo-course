@@ -1,6 +1,5 @@
 package com.internship.producer.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.internship.producer.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +20,9 @@ public class ProductController {
     }
 
     @PostMapping("/new")
-    public void addProduct(@RequestBody Product product) throws JsonProcessingException {
-        System.out.println("Product added");
+    public void addProduct(@RequestBody Product product) {
         productService.sendMessage(product);
+        System.out.println("added "+product);
     }
 
 
