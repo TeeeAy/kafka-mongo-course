@@ -22,7 +22,6 @@ public class ProductController {
     @PostMapping("/new")
     public void addProduct(@RequestBody Product product) {
         productService.sendMessage(product);
-        System.out.println("added "+product);
     }
 
 

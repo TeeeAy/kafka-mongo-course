@@ -19,6 +19,5 @@ public class ProductService {
     @KafkaListener(topics = "${spring.kafka.template.default-topic}", groupId = "${spring.kafka.consumer.group-id}")
     public void consumeMessage(Product product) {
         productRepository.save(product);
-        System.out.println("received "+product);
     }
 }
