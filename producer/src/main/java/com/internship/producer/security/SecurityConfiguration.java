@@ -12,6 +12,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import static com.internship.producer.controller.ProductControllerConstants.ADD_PRODUCT_URL;
+import static com.internship.producer.controller.ProductControllerConstants.MAPPING_URL;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -21,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/product/new").hasRole(UserRole.ADMIN.name())
+                .antMatchers(MAPPING_URL+ADD_PRODUCT_URL).hasRole(UserRole.ADMIN.name())
                 .anyRequest()
                 .authenticated()
                 .and()

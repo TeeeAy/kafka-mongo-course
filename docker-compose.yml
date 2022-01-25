@@ -22,7 +22,10 @@ services:
       - "27017:27017"
 
   producer:
-    image: kafka_producer
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    restart: always
     ports:
       - "8080:8080"
     environment:
@@ -31,7 +34,10 @@ services:
       - kafka
 
   consumer:
-    image: kafka_consumer
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile
+    restart: always
     ports:
       - "8081:8081"
     environment:
